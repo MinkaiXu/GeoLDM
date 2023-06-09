@@ -7,14 +7,13 @@
 
 ![cover](equivariant_diffusion/framework.png)
 
-Official code release for the paper "Geometric Latent Diffusion Models for 3D Molecule Generation", accepted at *International Conference on Machine
-Learning, 2023*.
+Official code release for the paper "Geometric Latent Diffusion Models for 3D Molecule Generation", accepted at *International Conference on Machine Learning, 2023*.
 
 ## Environment
 
 Install the required packages from `requirements.txt`. A simplified version of the requirements can be found [here](https://github.com/ehoogeboom/e3_diffusion_for_molecules/blob/main/requirements.txt).
 
-**Note**: If you want to set-up a rdkit environment, it may be easiest to install conda and run:
+**Note**: If you want to set up a rdkit environment, it may be easiest to install conda and run:
 ``conda create -c conda-forge -n my-rdkit-env rdkit`` and then install the other required packages. But the code should still run without rdkit installed though.
 
 
@@ -26,11 +25,11 @@ Install the required packages from `requirements.txt`. A simplified version of t
 
 ### For Drugs
 
-First follow the intructions at data/geom/README.md to set up the data.
+First follow the intructions at `data/geom/README.md` to set up the data.
 
 ```python main_geom_drugs.py --n_epochs 3000 --n_stability_samples 500 --diffusion_noise_schedule polynomial_2 --diffusion_steps 1000 --diffusion_noise_precision 1e-5 --diffusion_loss_type l2 --batch_size 32 --nf 256 --n_layers 4 --lr 1e-4 --normalize_factors [1,4,10] --test_epochs 1 --ema_decay 0.9999 --normalization_factor 1 --model egnn_dynamics --visualize_every_batch 10000 --train_diffusion --trainable_ae --latent_nf 2 --exp_name geoldm_drugs```
 
-**Note**: In the paper we present an encoder early-stopping strategy for training the Autoencoder. However, in later experiments we found that we can even just keep the encoder untrained and only train the decoder, which is faster and leads to similar results. Our realeased version uses this strategy. This phenomenon is quiet interesting and we are also still actively investigating it.
+**Note**: In the paper, we present an encoder early-stopping strategy for training the Autoencoder. However, in later experiments, we found that we can even just keep the encoder untrained and only train the decoder, which is faster and leads to similar results. Our released version uses this strategy. This phenomenon is quite interesting and we are also still actively investigating it.
 
 ### Pretrained models
 
